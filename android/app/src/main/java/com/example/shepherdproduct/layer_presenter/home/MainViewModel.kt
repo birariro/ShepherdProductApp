@@ -4,9 +4,11 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.example.shepherdproduct.layer_domain.data.SearchType
 import com.example.shepherdproduct.layer_domain.usecase.SearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -27,6 +29,10 @@ class MainViewModel @Inject constructor(private val searchUseCase: SearchUseCase
 
     fun search(){
         Log.d(TAG, "search click")
-        searchUseCase.execute(inputText, SearchType.Product)
+        viewModelScope.launch {
+            val execute = searchUseCase.execute(inputText, SearchType.Product)
+            Log.d(TAG, "execute : $execute")
+        }
+
     }
 }

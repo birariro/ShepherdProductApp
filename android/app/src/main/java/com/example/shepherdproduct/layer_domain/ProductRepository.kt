@@ -1,5 +1,7 @@
 package com.example.shepherdproduct.layer_domain
 
+import com.example.shepherdproduct.layer_domain.data.SearchType
+
 interface ProductRepository {
-    fun search() :String
+    suspend fun search(searchText:String, searchType: SearchType) :String
 }
