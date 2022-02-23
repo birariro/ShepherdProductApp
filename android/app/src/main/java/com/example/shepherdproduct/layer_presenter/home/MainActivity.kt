@@ -20,12 +20,15 @@ class MainActivity : AppCompatActivity() {
         eventObserve()
     }
     private fun eventAttach(){
+
         binding.inputEditText.afterTextChanged {
             viewModel.inputTextAfterTextChanged(it)
         }
         binding.searchButton.setOnClickListener {
             viewModel.search()
         }
+
+        binding.inputEditText.setText("쇼핑")
     }
     private fun eventObserve(){
 

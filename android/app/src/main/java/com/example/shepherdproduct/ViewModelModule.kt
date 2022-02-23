@@ -12,6 +12,7 @@ import dagger.hilt.android.components.ViewModelComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.scalars.ScalarsConverterFactory
 
 @InstallIn(ViewModelComponent::class)
 @Module
@@ -42,6 +43,7 @@ class ViewModelModule {
         return Retrofit.Builder()
             .baseUrl(RASE_URL)
             .client(OkHttpClient())
+            .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()
     }

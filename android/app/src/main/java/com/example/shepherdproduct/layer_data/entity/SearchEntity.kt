@@ -1,5 +1,8 @@
 package com.example.shepherdproduct.layer_data.entity
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class SearchEntity (
     val header: Header,
     val body: Body
@@ -9,13 +12,13 @@ data class Body (
     val pageNo: Long,
     val totalCount: Long,
     val numOfRows: Long,
-    val items: List<Item>
+    val items: MutableList<Item>
 )
 
 data class Item (
-    val entrps: String,
-    val prduct: String,
-    val dspsDt: String? = null
+    val ENTRPS: String,
+    val PRDUCT: String,
+    val DSPS_DT: String? = null
 )
 
 data class Header (

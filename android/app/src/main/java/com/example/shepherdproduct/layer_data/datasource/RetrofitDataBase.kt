@@ -8,6 +8,7 @@ import retrofit2.http.Query
 
 interface RetrofitDataBase {
     @GET("FoodFlshdErtsInfoService02/getFoodFlshdErtsList")
+    @Headers("Content-Type:application/json;charset=utf-8")
     suspend fun searchProduct(
         @Query("ServiceKey")serviceKey:String = "ecRUAWQCCIj7fved9BSoyYhkCrLWpUswHZ6bq5I635bB0GG76X5Mc4Wv11MWAfPz3B01eprG1KmgWX46Qlw3oA==",
         @Query("Prduct") prductName:String,
