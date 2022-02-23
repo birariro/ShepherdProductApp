@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.shepherdproduct.layer_domain.data.SearchData
 import com.example.shepherdproduct.layer_domain.data.SearchType
 import com.example.shepherdproduct.layer_domain.usecase.SearchUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,8 +18,8 @@ class MainViewModel @Inject constructor(private val searchUseCase: SearchUseCase
     companion object{
         val TAG = "MainViewModel"
     }
-//    private val _inputText = MutableLiveData<String>()
-//    val inputText : LiveData<String> = _inputText
+    private val _searchDataList = MutableLiveData<List<SearchData>>()
+    val searchDataList : LiveData<List<SearchData>> = _searchDataList
 //
 
     private var inputText:String = ""
@@ -32,6 +33,7 @@ class MainViewModel @Inject constructor(private val searchUseCase: SearchUseCase
         viewModelScope.launch {
             val execute = searchUseCase.execute(inputText, SearchType.Product)
             Log.d(TAG, "execute : $execute")
+            _searchDataList.value = execute
         }
 
     }
