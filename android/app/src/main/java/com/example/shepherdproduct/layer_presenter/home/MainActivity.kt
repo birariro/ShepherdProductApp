@@ -10,6 +10,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.example.shepherdproduct.databinding.ActivityMainBinding
 import com.example.shepherdproduct.layer_presenter.result.BadPopupActivity
+import com.example.shepherdproduct.layer_presenter.result.ErrorPopupActivity
 import com.example.shepherdproduct.layer_presenter.result.GoodPopupActivity
 import com.example.superwallet.util.extension.afterTextChanged
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,12 +30,17 @@ class MainActivity : AppCompatActivity() {
         eventAttach()
         eventObserve()
     }
+    private fun initUI(){
+        binding.loading.visibility = View.INVISIBLE
+    }
+
     private fun eventAttach(){
 
         binding.inputEditText.afterTextChanged {
             viewModel.inputTextAfterTextChanged(it)
         }
         binding.searchButton.setOnClickListener {
+
             binding.loading.visibility = View.VISIBLE
             viewModel.search()
         }
@@ -43,15 +49,10 @@ class MainActivity : AppCompatActivity() {
     }
     private fun eventObserve(){
         viewModel.searchDataList.observe(this){
-            binding.loading.visibility = View.GONE
+            binding.loading.visibility = View.INVISIBLE
             if(! it.success){
-                Log.d(TAG,"조회 실패")
-                AlertDialog.Builder(this)
-                    .setTitle("실패")
-                    .setMessage("잠시후 다시 시도해 주세요")
-                    .setPositiveButton("확인"
-                    ) { _, _ ->  }
-                    .create().show()
+                val intent = Intent(this, ErrorPopupActivity::class.java)
+                startActivity(intent)
                 return@observe
             }
 

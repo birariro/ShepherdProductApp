@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".layer_presenter.result.GoodPopupActivity">
+    tools:context=".layer_presenter.result.ErrorPopupActivity">
     <TextView
         android:layout_margin="10dp"
         android:id="@+id/card_title"
@@ -15,12 +15,12 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="@color/main_color"
-        android:text="훌륭하다"
+        android:text="다시 시도해주세요"
         android:textSize="20sp"
         />
 
     <ImageView
-        android:src="@drawable/icon_good"
+        android:src="@drawable/icon_error"
         android:id="@+id/goo"
         android:layout_marginTop="10dp"
         android:layout_width="180dp"
