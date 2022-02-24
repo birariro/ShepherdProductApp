@@ -5,7 +5,7 @@ import com.example.shepherdproduct.layer_domain.data.SearchData
 import com.example.shepherdproduct.layer_domain.data.SearchType
 
 class SearchUseCase(private val productRepository: ProductRepository) {
-    suspend fun execute(searchText:String, searchType:SearchType) : List<SearchData>{
+    suspend fun execute(searchText:String, searchType:SearchType) : SearchData{
         return productRepository.search(searchText,searchType)
     }
 }

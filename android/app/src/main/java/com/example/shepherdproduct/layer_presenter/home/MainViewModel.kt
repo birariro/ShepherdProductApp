@@ -18,8 +18,8 @@ class MainViewModel @Inject constructor(private val searchUseCase: SearchUseCase
     companion object{
         val TAG = "MainViewModel"
     }
-    private val _searchDataList = MutableLiveData<List<SearchData>>()
-    val searchDataList : LiveData<List<SearchData>> = _searchDataList
+    private val _searchDataList = MutableLiveData<SearchData>()
+    val searchDataList : LiveData<SearchData> = _searchDataList
 //
 
     private var inputText:String = ""
