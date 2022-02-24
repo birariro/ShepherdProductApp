@@ -8,9 +8,9 @@ import java.net.URLEncoder
 
 class RemoteDataSource(private val retrofit: Retrofit) {
     //todo 여기 flow 로 변경하자
-    suspend fun searchProduct(ProductName:String) : SearchEntity?{
+    suspend fun searchProduct(productName:String) : SearchEntity?{
         return try{
-            val encode = URLEncoder.encode(ProductName, "UTF-8")
+            val encode = URLEncoder.encode(productName, "UTF-8")
             val searchProduct = retrofit.create(RetrofitDataBase::class.java)
                 .searchProduct(prductName = encode)
             Log.d("RemoteDataSource","searchProduct ${searchProduct}")

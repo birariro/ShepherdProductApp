@@ -9,9 +9,11 @@ import com.example.shepherdproduct.layer_domain.data.SearchType
 class CommonProductRepository (private val remoteDataSource: RemoteDataSource):ProductRepository{
     override suspend fun search(searchText:String, searchType: SearchType): SearchData {
         val searchProduct = remoteDataSource.searchProduct(searchText)
-
         val searchDataList = mutableListOf<SearchDataBody>()
-        val items = searchProduct?.body?.items ?: null ?: return SearchData(false,searchDataList)
+        // 데이터가 안온경우
+        if(searchProduct == null) return SearchData(false,searchDataList)
+
+        val items = searchProduct?.body?.items ?: null ?: return SearchData(true,searchDataList)
         for (item in items) {
             searchDataList.add(SearchDataBody(item.ENTRPS, item.PRDUCT))
         }

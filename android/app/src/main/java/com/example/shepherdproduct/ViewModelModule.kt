@@ -13,6 +13,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
+import java.util.concurrent.TimeUnit
 
 @InstallIn(ViewModelComponent::class)
 @Module
@@ -40,9 +41,14 @@ class ViewModelModule {
     fun provideRetrofit(): Retrofit {
         val RASE_URL = "http://apis.data.go.kr/1471000/"
 
+        val okHttpClient = OkHttpClient().newBuilder()
+            .connectTimeout(30,TimeUnit.SECONDS)
+            .readTimeout(30,TimeUnit.SECONDS)
+            .writeTimeout(15,TimeUnit.SECONDS).build()
+
         return Retrofit.Builder()
             .baseUrl(RASE_URL)
-            .client(OkHttpClient())
+            .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()
