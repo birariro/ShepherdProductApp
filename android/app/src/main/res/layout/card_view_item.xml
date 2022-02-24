@@ -18,20 +18,43 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:orientation="vertical">
-       <TextView
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회사 명 :"
+                android:textStyle="bold"
+                android:textColor="@color/main_color"/>
+            <TextView
                 android:id="@+id/company_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="도서관 출입증"
-                android:textStyle="bold"
+                android:textColor="@color/main_color"
+                android:text="A회사"
                 />
 
-        <TextView
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="제품 명 :"/>
+            <TextView
                 android:id="@+id/product_text_view"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12345-1234-1234-1234"
+                android:text="이런 저런 제품"
                 />
+        </LinearLayout>
+
+
+
     </LinearLayout>
 
 

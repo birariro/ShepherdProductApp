@@ -7,14 +7,29 @@ import java.lang.Exception
 import java.net.URLEncoder
 
 class RemoteDataSource(private val retrofit: Retrofit) {
-    //todo 여기 flow 로 변경하자
+
     suspend fun searchProduct(productName:String) : SearchEntity?{
+        Log.d("RemoteDataSource","searchProduct 시작")
         return try{
-            val encode = URLEncoder.encode(productName, "UTF-8")
             val searchProduct = retrofit.create(RetrofitDataBase::class.java)
-                .searchProduct(prductName = encode)
+                .searchProduct(prductName = productName)
             Log.d("RemoteDataSource","searchProduct ${searchProduct}")
             searchProduct
+        }catch (e:Exception){
+            Log.d("RemoteDataSource","e ${e.message}")
+            null
+        }
+
+
+    }
+
+    suspend fun searchCompany(companyName:String) : SearchEntity?{
+        Log.d("RemoteDataSource","searchCompany 시작")
+        return try{
+            val searchCompany = retrofit.create(RetrofitDataBase::class.java)
+                .searchCompany(companyName = companyName)
+            Log.d("RemoteDataSource","searchCompany ${searchCompany}")
+            searchCompany
         }catch (e:Exception){
             Log.d("RemoteDataSource","e ${e.message}")
             null

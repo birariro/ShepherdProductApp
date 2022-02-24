@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="@color/main_color"
-        android:text="과대 광고 이력이 없습니다."
+        android:text="허위/과대 광고 이력이 없습니다."
         android:textSize="20sp"
         />
 

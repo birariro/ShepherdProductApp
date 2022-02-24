@@ -26,7 +26,7 @@
         <TextView
             android:layout_margin="5dp"
             android:layout_gravity="center"
-            android:text="과대 광고 검색"
+            android:text="허위/과대 광고 검색"
             android:textColor="@color/main_color"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -47,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"/>
 
     <LinearLayout
+        android:id="@+id/search_layout"
         android:layout_marginTop="5dp"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
@@ -67,21 +68,52 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
-                android:hint="  검색어를 입력 하시오" />
+                android:inputType="text"
+                android:hint="  검색어를 입력 하시오"/>
 
         </LinearLayout>
 
-        <ImageButton
-
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_marginStart="5dp"
+            android:background="@drawable/border_button_layout"
             android:src="@drawable/ic_search"
-            android:layout_marginStart="10dp"
             android:id="@+id/search_button"
             android:layout_weight="2"
             android:layout_width="0dp"
             android:layout_height="40dp"
             android:text="검색"/>
 
-    </LinearLayout>
 
+    </LinearLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/search_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RadioGroup
+            android:id="@+id/search_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:textColor="@color/main_color"
+                android:id="@+id/company_radio_button"
+                android:text="회사명"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:textColor="@color/main_color"
+                android:id="@+id/product_radio_button"
+                android:text="제품명"
+                android:checked="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

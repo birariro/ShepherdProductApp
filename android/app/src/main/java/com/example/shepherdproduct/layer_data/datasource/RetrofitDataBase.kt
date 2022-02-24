@@ -1,7 +1,6 @@
 package com.example.shepherdproduct.layer_data.datasource
 
 import com.example.shepherdproduct.layer_data.entity.SearchEntity
-import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -24,5 +23,5 @@ interface RetrofitDataBase {
         @Query("Entrps") companyName:String,
         @Query("pageNo") pageNo:Int = 1,
         @Query("type") type:String = "json",
-        ) : SearchEntity
+    ) : SearchEntity
 }

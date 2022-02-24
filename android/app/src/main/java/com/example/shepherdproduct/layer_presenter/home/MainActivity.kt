@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import com.example.shepherdproduct.databinding.ActivityMainBinding
+import com.example.shepherdproduct.layer_domain.data.SearchType
 import com.example.shepherdproduct.layer_presenter.result.ErrorPopupActivity
 import com.example.shepherdproduct.layer_presenter.result.GoodPopupActivity
 import com.example.shepherdproduct.layer_presenter.result.listview.BadDataActivity
@@ -40,6 +41,15 @@ class MainActivity : AppCompatActivity() {
         binding.searchButton.setOnClickListener {
             binding.loading.visibility = View.VISIBLE
             viewModel.search()
+        }
+        binding.searchRadioGroup.setOnCheckedChangeListener { radioGroup, i ->
+            if(i == binding.companyRadioButton.id){
+                Log.d(TAG, "Company RadioButton click")
+                viewModel.searchType(SearchType.Company)
+            }else{
+                Log.d(TAG, "Product RadioButton click")
+                viewModel.searchType(SearchType.Product)
+            }
         }
 
     }
