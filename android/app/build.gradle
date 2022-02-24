@@ -5,6 +5,7 @@ plugins {
     id 'dagger.hilt.android.plugin'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -37,7 +38,6 @@ android {
         viewBinding true
     }
 
-
 }
 
 dependencies {
@@ -67,6 +67,10 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+
+    //card view
+    implementation 'androidx.cardview:cardview:1.0.0'
+
     //room
     def room_version = "2.4.1"
     implementation "androidx.room:room-runtime:$room_version"

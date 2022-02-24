@@ -5,10 +5,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".layer_presenter.result.BadPopupActivity">
+    tools:context=".layer_presenter.result.listview.BadDataActivity">
+
     <TextView
         android:layout_margin="10dp"
-        android:id="@+id/card_title"
+        android:id="@+id/text_view"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -16,18 +17,30 @@
         android:layout_height="wrap_content"
         android:textStyle="bold"
         android:textColor="@color/main_color"
-        android:text="엉망이다"
+        android:text="과대 광고 이력이 있습니다."
         android:textSize="20sp"
         />
 
     <ImageView
-        android:src="@drawable/ic_check"
-        android:id="@+id/card_code"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/card_title"
+        android:src="@drawable/icon_bad"
+        android:id="@+id/image_view"
+        android:layout_marginTop="10dp"
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintTop_toBottomOf="@id/text_view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <androidx.recyclerview.widget.RecyclerView
+        app:layout_constraintTop_toBottomOf="@id/image_view"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        />
+        android:id="@+id/home_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

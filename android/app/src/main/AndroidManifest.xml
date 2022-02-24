@@ -22,9 +22,8 @@
             android:exported="false"
             android:theme="@style/popupTheme" />
         <activity
-            android:name=".layer_presenter.result.BadPopupActivity"
-            android:exported="false"
-            android:theme="@style/popupTheme" />
+            android:name=".layer_presenter.result.listview.BadDataActivity"
+            android:exported="false" />
         <activity
             android:name=".layer_presenter.home.MainActivity"
             android:exported="true">

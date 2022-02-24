@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="3dp"
+    app:contentPadding="4dp">
+
+
+
+    <LinearLayout
+            android:id="@+id/card_layout"
+            android:layout_marginStart="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:orientation="vertical">
+       <TextView
+                android:id="@+id/company_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도서관 출입증"
+                android:textStyle="bold"
+                />
+
+        <TextView
+                android:id="@+id/product_text_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12345-1234-1234-1234"
+                />
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

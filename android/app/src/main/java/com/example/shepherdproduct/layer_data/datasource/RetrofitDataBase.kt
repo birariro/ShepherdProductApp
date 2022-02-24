@@ -13,6 +13,7 @@ interface RetrofitDataBase {
         @Query("ServiceKey")serviceKey:String = "ecRUAWQCCIj7fved9BSoyYhkCrLWpUswHZ6bq5I635bB0GG76X5Mc4Wv11MWAfPz3B01eprG1KmgWX46Qlw3oA==",
         @Query("Prduct") prductName:String,
         @Query("pageNo") pageNo:Int = 1,
+        @Query("numOfRows") numOfRows:Int = 1,
         @Query("type") type:String = "json",
 
     ) : SearchEntity
@@ -23,6 +24,7 @@ interface RetrofitDataBase {
         @Query("ServiceKey")serviceKey:String = "ecRUAWQCCIj7fved9BSoyYhkCrLWpUswHZ6bq5I635bB0GG76X5Mc4Wv11MWAfPz3B01eprG1KmgWX46Qlw3oA==",
         @Query("Entrps") companyName:String,
         @Query("pageNo") pageNo:Int = 1,
+        @Query("numOfRows") numOfRows:Int = 1,
         @Query("type") type:String = "json",
         ) : SearchEntity
 }
