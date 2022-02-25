@@ -2,6 +2,7 @@ package com.example.shepherdproduct.layer_data.datasource
 
 import android.util.Log
 import com.example.shepherdproduct.layer_data.entity.SearchEntity
+import com.google.gson.Gson
 import retrofit2.Retrofit
 import java.lang.Exception
 import java.net.URLEncoder
@@ -13,8 +14,10 @@ class RemoteDataSource(private val retrofit: Retrofit) {
         return try{
             val searchProduct = retrofit.create(RetrofitDataBase::class.java)
                 .searchProduct(prductName = productName)
+
             Log.d("RemoteDataSource","searchProduct ${searchProduct}")
-            searchProduct
+
+            Gson().fromJson(searchProduct, SearchEntity::class.java)
         }catch (e:Exception){
             Log.d("RemoteDataSource","e ${e.message}")
             null
@@ -29,7 +32,7 @@ class RemoteDataSource(private val retrofit: Retrofit) {
             val searchCompany = retrofit.create(RetrofitDataBase::class.java)
                 .searchCompany(companyName = companyName)
             Log.d("RemoteDataSource","searchCompany ${searchCompany}")
-            searchCompany
+            Gson().fromJson(searchCompany, SearchEntity::class.java)
         }catch (e:Exception){
             Log.d("RemoteDataSource","e ${e.message}")
             null

@@ -14,7 +14,7 @@ interface RetrofitDataBase {
         @Query("pageNo") pageNo:String = "1",
         @Query("type") type:String = "json",
 
-    ) : SearchEntity
+    ) : String
 
     @GET("FoodFlshdErtsInfoService02/getFoodFlshdErtsList")
     @Headers("Content-Type:application/x-www-form-urlencoded; charset=utf-8")
@@ -23,5 +23,5 @@ interface RetrofitDataBase {
         @Query("Entrps") companyName:String,
         @Query("pageNo") pageNo:Int = 1,
         @Query("type") type:String = "json",
-    ) : SearchEntity
+    ) : String
 }
