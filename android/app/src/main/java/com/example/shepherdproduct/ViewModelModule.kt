@@ -25,7 +25,7 @@ class ViewModelModule {
         return SearchUseCase(productRepository)
     }
 
-    //REPOSITORY
+    //repository
     @Provides
     fun provideProductRepository(remoteDataSource: RemoteDataSource) : ProductRepository {
         return CommonProductRepository(remoteDataSource)
