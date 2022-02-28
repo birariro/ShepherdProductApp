@@ -39,7 +39,7 @@ class ViewModelModule {
 
     @Provides
     fun provideRetrofit(): Retrofit {
-        val RASE_URL = "http://apis.data.go.kr/1471000/"
+        val baseURL = "http://apis.data.go.kr/1471000/"
 
         val okHttpClient = OkHttpClient().newBuilder()
             .connectTimeout(30,TimeUnit.SECONDS)
@@ -47,10 +47,11 @@ class ViewModelModule {
             .writeTimeout(15,TimeUnit.SECONDS).build()
 
         return Retrofit.Builder()
-            .baseUrl(RASE_URL)
+            .baseUrl(baseURL)
             .client(okHttpClient)
             .addConverterFactory(ScalarsConverterFactory.create())
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
             .build()
     }
+
 }
