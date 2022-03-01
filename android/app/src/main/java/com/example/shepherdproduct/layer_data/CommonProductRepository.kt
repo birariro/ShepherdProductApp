@@ -10,6 +10,7 @@ import com.example.shepherdproduct.layer_domain.data.SearchType
 class CommonProductRepository (private val remoteDataSource: RemoteDataSource):ProductRepository{
     override suspend fun search(searchText:String, searchType: SearchType): SearchData {
 
+        //type 에 맞춰 요청을 지정한다.
         val searchProduct = if(searchType == SearchType.Product){
             remoteDataSource.searchProduct(searchText)
         }else{
