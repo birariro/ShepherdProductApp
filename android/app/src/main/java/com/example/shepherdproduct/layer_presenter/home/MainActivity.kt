@@ -29,9 +29,7 @@ class MainActivity : AppCompatActivity() {
         eventAttach()
         eventObserve()
     }
-    private fun initUI(){
-        binding.loading.visibility = View.INVISIBLE
-    }
+
 
     private fun eventAttach(){
 
