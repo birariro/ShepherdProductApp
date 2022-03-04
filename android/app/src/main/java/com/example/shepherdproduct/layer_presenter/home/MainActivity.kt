@@ -42,10 +42,8 @@ class MainActivity : AppCompatActivity() {
         }
         binding.searchRadioGroup.setOnCheckedChangeListener { radioGroup, i ->
             if(i == binding.companyRadioButton.id){
-                Log.d(TAG, "Company RadioButton click")
                 viewModel.searchType(SearchType.Company)
             }else{
-                Log.d(TAG, "Product RadioButton click")
                 viewModel.searchType(SearchType.Product)
             }
         }
@@ -62,12 +60,10 @@ class MainActivity : AppCompatActivity() {
             }
 
             if(it.data.isEmpty()){
-                Log.d(TAG,"searchDataList count 0")
                 val intent = Intent(this, GoodPopupActivity::class.java)
                 startActivity(intent)
 
             }else{
-                Log.d(TAG,"searchDataList count ${it.data.count()}")
                 val intent = Intent(this, BadDataActivity::class.java)
                 intent.putExtra("searchData", it)
                 startActivity(intent)
