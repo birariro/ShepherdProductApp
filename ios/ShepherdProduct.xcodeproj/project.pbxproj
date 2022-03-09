@@ -12,9 +12,9 @@
 		E39FF66827C9215600C42E8E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39FF66727C9215600C42E8E /* ContentView.swift */; };
 		E39FF66A27C9215700C42E8E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FF66927C9215700C42E8E /* Assets.xcassets */; };
 		E39FF66D27C9215700C42E8E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E39FF66C27C9215700C42E8E /* Preview Assets.xcassets */; };
+		E3A6B36C27D8D32C00C400ED /* SearchEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A6B36B27D8D32C00C400ED /* SearchEntity.swift */; };
 		E3F7475227D86C32002D1836 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7475127D86C32002D1836 /* MainViewModel.swift */; };
 		E3F7475427D86C95002D1836 /* SearchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7475327D86C95002D1836 /* SearchType.swift */; };
-		E3F7475627D86F47002D1836 /* ApiUrlModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7475527D86F47002D1836 /* ApiUrlModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,9 +24,10 @@
 		E39FF66727C9215600C42E8E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E39FF66927C9215700C42E8E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E39FF66C27C9215700C42E8E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E3A6B36A27D8CFDF00C400ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E3A6B36B27D8D32C00C400ED /* SearchEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEntity.swift; sourceTree = "<group>"; };
 		E3F7475127D86C32002D1836 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		E3F7475327D86C95002D1836 /* SearchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchType.swift; sourceTree = "<group>"; };
-		E3F7475527D86F47002D1836 /* ApiUrlModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrlModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +60,7 @@
 		E39FF66427C9215600C42E8E /* ShepherdProduct */ = {
 			isa = PBXGroup;
 			children = (
+				E3A6B36A27D8CFDF00C400ED /* Info.plist */,
 				E39FF66527C9215600C42E8E /* ShepherdProductApp.swift */,
 				E39FF66727C9215600C42E8E /* ContentView.swift */,
 				E39FF66927C9215700C42E8E /* Assets.xcassets */,
@@ -66,7 +68,7 @@
 				E3000A6E27D7A053005F5950 /* CommonColor.swift */,
 				E3F7475127D86C32002D1836 /* MainViewModel.swift */,
 				E3F7475327D86C95002D1836 /* SearchType.swift */,
-				E3F7475527D86F47002D1836 /* ApiUrlModel.swift */,
+				E3A6B36B27D8D32C00C400ED /* SearchEntity.swift */,
 			);
 			path = ShepherdProduct;
 			sourceTree = "<group>";
@@ -153,7 +155,7 @@
 				E3000A6F27D7A053005F5950 /* CommonColor.swift in Sources */,
 				E3F7475427D86C95002D1836 /* SearchType.swift in Sources */,
 				E39FF66627C9215600C42E8E /* ShepherdProductApp.swift in Sources */,
-				E3F7475627D86F47002D1836 /* ApiUrlModel.swift in Sources */,
+				E3A6B36C27D8D32C00C400ED /* SearchEntity.swift in Sources */,
 				E3F7475227D86C32002D1836 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -287,6 +289,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShepherdProduct/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShepherdProduct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,6 +318,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ShepherdProduct/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShepherdProduct/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -39,6 +39,11 @@ class MainViewModel : ObservableObject{
             }
             do{
                 print("api data : \(data)")
+                guard let model = try? JSONDecoder().decode(SearchEntity.self, from: data) else{
+                    print("api decode faild")
+                    return
+                }
+                print("api data : \(model)")
             }
             catch{
                 print("api faild")
