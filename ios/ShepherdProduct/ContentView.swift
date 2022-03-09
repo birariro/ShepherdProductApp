@@ -39,7 +39,8 @@ struct ContentView: View {
                     
                 Button(action: {
                     print("click")
-                    let searchText:String = inputText
+                    //let searchText:String = inputText
+                    let searchText:String = "건강"
                     let searchType: SearchType = comToggle ? SearchType.Company : SearchType.Product
                     
                     viewModel.search(searchText: searchText, searchType: searchType)

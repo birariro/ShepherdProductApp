@@ -12,50 +12,61 @@ class MainViewModel : ObservableObject{
     @Published var result : String = ""
     
     func search(searchText:String, searchType:SearchType){
-        getApiUrl(searchText: searchText, searchType: searchType)
-    }
-    
-    private func getApiUrl(searchText:String, searchType:SearchType){
-        // case Product, Company
-       
-        let baseUrl = "http://apis.data.go.kr/1471000/FoodFlshdErtsInfoService02/getFoodFlshdErtsList?"
-        
-        let serviceKey : String = "ServiceKey="+"ecRUAWQCCIj7fved9BSoyYhkCrLWpUswHZ6bq5I635bB0GG76X5Mc4Wv11MWAfPz3B01eprG1KmgWX46Qlw3oA=="
-        let pageNo : String = "pageNo="+"1"
-        let type : String = "type="+"json"
-        let searchText : String = searchType == SearchType.Company ? "Entrps="+searchText : "Prduct="+searchText
-        
-        let url = "\(baseUrl)\(serviceKey)&\(pageNo)&\(type)&\(searchText)"
-        
-        print("create URL : \(url)")
-        
-        guard let url = URL(string: url)else{
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url){ data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            do{
+        do{
+            let url = try getApiUrl(searchText: searchText, searchType: searchType)
+            
+            let task = URLSession.shared.dataTask(with: url){ data, _, error in
+                guard let data = data, error == nil else {
+                    return
+                }
+                
                 print("api data : \(data)")
                 guard let model = try? JSONDecoder().decode(SearchEntity.self, from: data) else{
                     print("api decode faild")
                     return
                 }
-                print("api data : \(model)")
+                print("api data model : \(model)")
             }
-            catch{
-                print("api faild")
-            }
+            task.resume()
 
+        }catch{
+            print("faild \(error)")
         }
-        task.resume()
+      
+        
+     
+    }
+    
+    private func getApiUrl(searchText:String, searchType:SearchType) throws -> URL {
+
+        let baseUrl = "http://apis.data.go.kr/1471000/FoodFlshdErtsInfoService02/getFoodFlshdErtsList?"
+        
+        let serviceKey : String = "ServiceKey="+"ecRUAWQCCIj7fved9BSoyYhkCrLWpUswHZ6bq5I635bB0GG76X5Mc4Wv11MWAfPz3B01eprG1KmgWX46Qlw3oA=="
+        let pageNo : String = "pageNo="+"1"
+        let type : String = "type="+"json"
+        let searchText : String = searchType == SearchType.Company ? "Entrps=\(searchText)" : "Prduct=\(searchText)"
+        
+        let url = "\(baseUrl)\(serviceKey)&\(pageNo)&\(type)&\(searchText)"
+        
+        print("create URL : \(url)")
+        
+        //한글이있을경우 인코딩
+        let encodedString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+
+        guard let url = URL(string: encodedString)else{
+            print("api url faild")
+            throw FaildError.apiURLMismatch
+        }
+        
+        return url
+      
         
     }
     
     func testClick(){
         print("hello world")
     }
+    
+
     
 }
