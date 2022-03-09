@@ -32,3 +32,7 @@ struct Item : Codable{
 }
 
 
+struct SearchResult {
+    var code: Bool
+    let items: [Item]?
+}

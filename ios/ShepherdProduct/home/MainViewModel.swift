@@ -9,9 +9,10 @@ import Foundation
 
 
 class MainViewModel : ObservableObject{
-    @Published var result : String = ""
-    
+    @Published var result : SearchResult = SearchResult(code: false, items: nil)
+    @Published var searching : Bool = false
     func search(searchText:String, searchType:SearchType){
+        self.searching = true
         do{
             let url = try getApiUrl(searchText: searchText, searchType: searchType)
             
@@ -23,8 +24,13 @@ class MainViewModel : ObservableObject{
                 print("api data : \(data)")
                 guard let model = try? JSONDecoder().decode(SearchEntity.self, from: data) else{
                     print("api decode faild")
+                    self.result = SearchResult(code: false, items: nil)
                     return
                 }
+                DispatchQueue.main.async {
+                    self.result = SearchResult(code: true, items: model.body.items)
+                }
+                
                 print("api data model : \(model)")
             }
             task.resume()
