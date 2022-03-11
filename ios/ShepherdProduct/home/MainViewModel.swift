@@ -39,6 +39,7 @@ class MainViewModel : ObservableObject{
             print("faild \(error)")
         }
       
+        self.searching = false
         
      
     }

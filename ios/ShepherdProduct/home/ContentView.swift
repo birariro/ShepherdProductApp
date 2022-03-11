@@ -21,16 +21,17 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             
-            
+        
             VStack{
                 
-//                if viewModel.result.code {
-//                    Text("true!!!")
-//                    NavigationLink(destination:   BadDataView(),isActive: $switchBool){
-//
-//                    }
-//
-//                }
+                if viewModel.result.code {
+                    Text("true!!!")
+                    BadDataView()
+                    NavigationLink(destination: BadDataView(), isActive: $switchBool){
+
+                    }
+
+                }
                 
                 Image("icon_main")
                     .resizable()
